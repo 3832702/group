@@ -1,0 +1,54 @@
+@charset "utf-8";
+@import "~@/lib/reset.scss";
+//公共样式表
+body,
+html,
+#container {
+    font-family: "Microsoft YaHei" !important;
+    @include rect(100%, 100%); //宽高均为100%，矩形
+    @include root-scroll(); //禁止滚动 ，默认为false,表示不可滚动
+    color: rgb(153, 153, 153);
+}
+
+#container {
+    @include flexbox(); //弹性盒布局
+    @include flex-direction(column); //竖直方向的弹性和布局   row代表数值水平方向  column 代表竖直方向
+    #mainContent {
+        @include flex(1);
+        overflow: auto;
+        width: 100%;
+        background: #f2f2f2;
+        .content {
+            @include flex(1);
+            @include rect(100%, 100%);
+            overflow: auto;
+            //          @include root-scroll(true);
+        }
+    }
+    footer {
+        @include rect(100%, 0.5rem);
+        background-color: rgb(255, 255, 255);
+        border-top: 1px solid rgb(238, 238, 238); //      color: rgb(153, 153, 153);
+        color: #999;
+    }
+}
+
+/*暂无内容*/
+.no-more {
+    margin: 0.1rem 0;
+}
+
+.nores {
+    margin: 0.3rem auto;
+    @include rect(1.4rem, auto);
+    text-align: center;
+    img {
+        @include rect(1.2rem, 1.2rem);
+    }
+    p {
+        margin-top: 0.1rem;
+        font-size: 0.12rem;
+        letter-spacing: 0.03rem;
+        line-height: 0.2rem;
+    }
+}
